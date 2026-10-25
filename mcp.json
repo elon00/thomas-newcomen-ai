@@ -1,0 +1,54 @@
+{
+  "mcpServers": {
+    "thomas-newcomen-ai": {
+      "command": "cargo",
+      "args": [
+        "run",
+        "--release",
+        "--quiet"
+      ],
+      "env": {
+        "RUST_LOG": "info",
+        "TITAN_PROTOCOL": "NEWCOMEN",
+        "TARGET_CHAIN": "Sui",
+        "FIPS_203_LEVEL": "ML-KEM-768",
+        "FIPS_204_LEVEL": "ML-DSA-65"
+      },
+      "tools": [
+        {
+          "name": "calculate_atmospheric_steam_stroke",
+          "description": "Computes downward atmospheric piston stroke force following cold-water jet condensation",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "cylinder_bore_inches": {
+                "type": "number"
+              },
+              "boiler_psi": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "cylinder_bore_inches"
+            ]
+          }
+        },
+        {
+          "name": "evaluate_mine_drainage_duty",
+          "description": "Calculates gallons of water pumped per bushel of coal consumed in deep Cornish mine shafts",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "shaft_depth_ft": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "shaft_depth_ft"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
